@@ -1,0 +1,21 @@
+<div class="form-wrapper">
+
+  <h2> Log In </h2>
+
+  <p class="error" *ngIf="loginError"> {{loginError}} </p>
+
+  <form (ngSubmit)="loginSubmit()" id="form">
+    <label for="username-input"> Username </label>
+    <input id="username-input" type="text" name="username" class="form-control"
+           [(ngModel)]="loginUser.loginUsername">
+    <br>
+    <label for="password-input"> Password </label>
+    <input  id="password-input" type="password" placeholder="******"
+            name="signupPassword" class="form-control"
+              [(ngModel)]="loginUser.loginPassword">
+    <br>
+    <button class="form-control"> Log In</button>
+    <br>
+  </form>
+  
+</div>

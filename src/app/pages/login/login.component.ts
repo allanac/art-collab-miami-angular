@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   loginSubmit() {
     this.authorize.loginPost(this.loginUser)
       .subscribe(
-        (userInfo) => {this.router.navigate(['']);},
+        (userInfo) => {this.router.navigate(['/profile']);},
         (errInfo) => {
           console.log('Log in error', errInfo);
           if(errInfo.status === 401){

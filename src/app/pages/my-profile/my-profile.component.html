@@ -1,0 +1,12 @@
+<h2> My Profile </h2>
+
+<div class="error" *ngIf="errorMessage">
+  <h3> {{ errorMessage}} </h3>
+</div>
+
+<ul>
+<p>{{ myProfile.username}}</p> <a [routerLink]="['/profile', myProfile._id]"> Edit MY Profile</a>
+<!-- <p>{{ myProfile.fullName}}</p>
+<p>{{ myProfile.genre }}</p> -->
+  <!-- <li> <img [src]="imageDomain + myProfile.userPic"></li> -->
+</ul>

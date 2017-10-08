@@ -1,0 +1,129 @@
+<h3> Edit Profile</h3>
+
+<p class="error" *ngIf="errorMessage"> {{errorMessage}} </p>
+
+<form (ngSubmit)="saveMyProfile()" class="form-horizontal">
+<h2> Update Profile </h2>
+<!--  user Profile Pic -->
+<div class="form-group">
+  <label class="control-label col-xs-4"
+          for="profile-image-input">
+          <span>Profile Pic:</span>
+  </label>
+  <div class="col-xs-3">
+  <input class="form-control" id="profile-image-input" type="file"
+         name="profileImage" ng2FileSelect [uploader]="myUploader">
+  </div>
+</div>
+<br>
+<!--  user Artist Name-->
+  <div class="form-group">
+    <label class="control-label col-xs-4"><span>Artist Name:</span></label>
+    <div class="col-xs-3">
+    <input class="form-control" type="text" name="userFullName" [(ngModel)]="myProfile.userFullName">
+  </div>
+</div>
+<!--  user Art Form Input -->
+<br>
+<div class="form-group">
+  <label class="control-label col-xs-4" for="user-art-form-input"> Artist Type?</label>
+  <div class="col-xs-8">
+    <select class="selectpicker" name="userArtForm" id="user-art-form-input">
+      <option>Singer</option>
+      <option>Songwriter</option>
+      <option>Singer/Songwriter</option>
+      <option>Beat Maker</option>
+      <option>Musician</option>
+      <option>Recording Engineer</option>
+      <option>Mixing Engineer</option>
+      <option>Vocal Producer</option>
+      <option>Live Music Engineer</option>
+    </select>
+  </div>
+</div>
+
+<!--  user Genre -->
+  <div class="form-group">
+    <label class="control-label col-xs-4" for="genre-input"> Genre: </label>
+    <div class="col-xs-8">
+    <select class="selectpicker" id="genre-input" name="userGenre" [(ngModel)]="myProfile.userGenre">
+         <option>Alternative Music</option>
+         <option>Blues</option>
+         <option>Classical Music</option>
+         <option>Country Music </option>
+         <option>Dance Music</option>
+         <option>Easy Listening</option>
+         <option>Electronic Music</option>
+         <option>European Music (Folk / Pop)</option>
+         <option>Hip Hop / Rap</option>
+         <option>Indie Pop</option>
+         <option>Inspirational (incl. Gospel)</option>
+         <option>Asian Pop (J-Pop, K-pop)</option>
+         <option>Jazz</option>
+         <option>Latin Music</option>
+         <option>New Age</option>
+         <option>Opera</option>
+         <option>Pop (Popular music)</option>
+         <option>RB / Soul</option>
+         <option>Reggae</option>
+         <option>Rock</option>
+         <option>Singer / Songwriter (inc. Folk)</option>
+         <option>World Music / Beats</option>
+      </select>
+  </div>
+  </div>
+<br>
+<!-- userCollab style -->
+<div class="form-group">
+  <label class="control-label col-xs-4" for="user-Collab-style"></label>
+  <div class="col-xs-8">
+  <select class="selectpicker" id="user-Collab-style"
+          name="userCollabStyle" [(ngModel)]="myProfile.userCollabStyle">
+    <option> Chill </option>
+    <option> Structured </option>
+    <option> Strict </option>
+  </select>
+</div>
+</div>
+<br>
+
+<!--  user Bio -->
+  <div class="form-group">
+    <label class="control-label col-xs-4" for="user-art-tools-input">UserBio:</label>
+    <div class="col-xs-8">
+      <textarea name="userBio" [(ngModel)]="myProfile.userBio"
+                rows="3" cols="40"></textarea>
+    </div>
+    </div>
+<br>
+<!--  Artist Tools-->
+<div class="form-group">
+  <label class="control-label col-xs-4" for="user-art-tools-input">Artist Tools:</label>
+  <div class="col-xs-8">
+    <select multiple class="selectpicker" id="user-art-tools-input"  name="userArtTools"
+            [(ngModel)]="myProfile.userArtTools">
+      <option> Voice </option>
+      <option> Piano </option>
+      <option> Keyboard/Synths </option>
+      <option> Guitar </option>
+      <option> Bass </option>
+      <option> Violin/Viola </option>
+      <option> Saxophone </option>
+      <option> Drums </option>
+      <option> Percussion </option>
+      <option> Trumpet </option>
+      <option> Pro Tools/ Logic </option>
+      <option> Ableton Live </option>
+      <option> Midi </option>
+    </select>
+  </div>
+  </div>
+<br>
+
+<div class="form-group">
+    <div class="col-xs-offset-2 col-xs-6">
+      <button type="submit" class="form-control">Save Profile</button>
+    </div>
+    </div>
+
+</form>

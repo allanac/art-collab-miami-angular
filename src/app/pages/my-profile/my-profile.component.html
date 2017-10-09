@@ -5,8 +5,17 @@
 </div>
 
 <ul>
-<p>{{ myProfile.username}}</p> <a [routerLink]="['/profile', myProfile._id]"> Edit MY Profile</a>
-<!-- <p>{{ myProfile.fullName}}</p>
-<p>{{ myProfile.genre }}</p> -->
-  <!-- <li> <img [src]="imageDomain + myProfile.userPic"></li> -->
+<a [routerLink]="['/profile', myProfile._username]"> Edit MY Profile</a>
+<br>
+<p>Username: {{ myProfile.username}}</p>
+<p>Artist Name: {{ myProfile.fullName}}</p>
+<p> Genre: {{ myProfile.genre }}</p>
+<p> Collab Style: {{myProfile.collabStyle}}</p>
+<p> Bio: {{myProfile.bio}}</p>
+<p *ngFor="let oneTool of myProfile.artTools">My Tools: {{oneTool}} </p>
+  <li> <img style="height:150px; width:150px;" [src]="imageDomain + myProfile.profilePic"></li>
 </ul>
+<hr>
+<h3> My Sounds</h3>
+
+<hr>

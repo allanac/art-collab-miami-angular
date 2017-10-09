@@ -20,6 +20,7 @@ export class EditMyProfileComponent implements OnInit {
   errorMessage: string;
 
   myUploader = new FileUploader({
+    method: 'PUT',
     url: environment.apiUrl + '/api/profile',
     itemAlias: 'userImage'
   });
@@ -30,8 +31,8 @@ export class EditMyProfileComponent implements OnInit {
     userArtForm:'',
     userGenre: '',
     userCollabStyle: '',
-    userBio: "",
-    userArtTools: ['']
+    userArtTools: [],
+    userBio: ""
   };
 
   @Output() saveMyProfileNotifier = new EventEmitter();
@@ -43,6 +44,7 @@ export class EditMyProfileComponent implements OnInit {
   ngOnInit() { }
 
     editMyProfile() {
+      console.log('hi')
       if(this.myUploader.getNotUploadedItems().length > 0) {
         this.saveMyProfileWithImage();
       }
@@ -75,7 +77,7 @@ export class EditMyProfileComponent implements OnInit {
           userGenre: '',
           userArtForm:'',
           userCollabStyle: '',
-          userArtTools: [''],
+          userArtTools: [],
           userBio: ''
         };
       }; //onSuccessItem
@@ -104,8 +106,8 @@ export class EditMyProfileComponent implements OnInit {
                   userGenre: '',
                   userArtForm:'',
                   userCollabStyle: '',
-                  userBio: '',
-                  userArtTools: ['']
+                  userArtTools: [],
+                  userBio: ''
                 };
              }, // userProfileDetails()
 

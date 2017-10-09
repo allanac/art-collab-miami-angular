@@ -9,7 +9,7 @@ import {environment} from '../../../environments/environment';
   styleUrls: ['./my-profile.component.css']
 })
 export class MyProfileComponent implements OnInit {
-
+  
   imageDomain = environment.apiUrl;
   myProfile: any = { };
   errorMessage: string;

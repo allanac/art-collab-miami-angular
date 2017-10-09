@@ -2,7 +2,7 @@
 
 <p class="error" *ngIf="errorMessage"> {{errorMessage}} </p>
 
-<form (ngSubmit)="editMyProfile()" class="form-horizontal">
+<form (ngSubmit)="editMyProfile()" class="form-horizontal" enctype="multipart/form-data">
 <h2> Update Profile </h2>
 <!--  user Profile Pic -->
 <div class="form-group">

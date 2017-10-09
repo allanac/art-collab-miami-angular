@@ -14,22 +14,24 @@ import { environment } from '../../../environments/environment';
 export class EditMyProfileComponent implements OnInit {
 
   // CLASS COMPONENT VARIABLES BEGIN ------------------//
+  imageDomain = environment.apiUrl;
+
 
   errorMessage: string;
 
   myUploader = new FileUploader({
     url: environment.apiUrl + '/api/profile',
-    itemAlias: 'profileImage'
+    itemAlias: 'userImage'
   });
 
-  myProfile: UserProfile = {
+  myProfile: any = {
     userPic:'',
     userFullName: '',
     userArtForm:'',
     userGenre: '',
     userCollabStyle: '',
     userBio: "",
-    userArtTools: []
+    userArtTools: ['']
   };
 
   @Output() saveMyProfileNotifier = new EventEmitter();
@@ -38,9 +40,9 @@ export class EditMyProfileComponent implements OnInit {
   constructor(
     private profileService: ProfileApiService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-    saveMyProfile() {
+    editMyProfile() {
       if(this.myUploader.getNotUploadedItems().length > 0) {
         this.saveMyProfileWithImage();
       }
@@ -63,20 +65,21 @@ export class EditMyProfileComponent implements OnInit {
       this.myUploader.onSuccessItem = (item, response) => {
         const userProfileDetails = JSON.parse(response);
         console.log('Successfuly Updated Profile', userProfileDetails);
+
         this.saveMyProfileNotifier.emit(userProfileDetails);
 
         this.errorMessage ='';
         this.myProfile = {
+          userPic:'',
           userFullName: '',
           userGenre: '',
           userArtForm:'',
           userCollabStyle: '',
-          userPic:'',
-          userBio: '',
-          userArtTools: []
+          userArtTools: [''],
+          userBio: ''
         };
       }; //onSuccessItem
-      this.myUploader.onErrorItem = (item,response) => {
+      this.myUploader.onErrorItem = (item, response) => {
         console.log('Save Profile Error', response);
 
         this.errorMessage = "Unknown Error. Try again later"
@@ -89,10 +92,10 @@ export class EditMyProfileComponent implements OnInit {
     saveMyProfileNoImage(){
         this.profileService.editMyProfile(this.myProfile)
           .subscribe(
-             (fullProfileDetails) => {
-                console.log('Save Profile Success', fullProfileDetails);
+             (userProfileDetails) => {
+                console.log('Save Profile Success', userProfileDetails);
                 // notifity the parent about the update to profile through the output??
-                this.saveMyProfileNotifier.emit(fullProfileDetails);
+                this.saveMyProfileNotifier.emit(userProfileDetails);
 
                 this.errorMessage = '';
                 this.myProfile = {
@@ -102,9 +105,9 @@ export class EditMyProfileComponent implements OnInit {
                   userArtForm:'',
                   userCollabStyle: '',
                   userBio: '',
-                  userArtTools: []
+                  userArtTools: ['']
                 };
-             }, // fullProfileDetails()
+             }, // userProfileDetails()
 
              //Error
              (errorInfo) => {

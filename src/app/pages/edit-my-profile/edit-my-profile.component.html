@@ -2,7 +2,7 @@
 
 <p class="error" *ngIf="errorMessage"> {{errorMessage}} </p>
 
-<form (ngSubmit)="saveMyProfile()" class="form-horizontal">
+<form (ngSubmit)="editMyProfile()" class="form-horizontal">
 <h2> Update Profile </h2>
 <!--  user Profile Pic -->
 <div class="form-group">
@@ -28,7 +28,8 @@
 <div class="form-group">
   <label class="control-label col-xs-4" for="user-art-form-input"> Artist Type?</label>
   <div class="col-xs-8">
-    <select class="selectpicker" name="userArtForm" id="user-art-form-input">
+    <select class="selectpicker" name="userArtForm"
+           [(ngModel)]="myProfile.userArtForm"  id="user-art-form-input">
       <option>Singer</option>
       <option>Songwriter</option>
       <option>Singer/Songwriter</option>
@@ -75,7 +76,7 @@
 <br>
 <!-- userCollab style -->
 <div class="form-group">
-  <label class="control-label col-xs-4" for="user-Collab-style"></label>
+  <label class="control-label col-xs-4" for="user-Collab-style">Collab Style</label>
   <div class="col-xs-8">
   <select class="selectpicker" id="user-Collab-style"
           name="userCollabStyle" [(ngModel)]="myProfile.userCollabStyle">
@@ -92,7 +93,7 @@
     <label class="control-label col-xs-4" for="user-art-tools-input">UserBio:</label>
     <div class="col-xs-8">
       <textarea name="userBio" [(ngModel)]="myProfile.userBio"
-                rows="3" cols="40"></textarea>
+                rows="3" cols="20">Short Bio </textarea>
     </div>
     </div>
 <br>
@@ -112,7 +113,7 @@
       <option> Drums </option>
       <option> Percussion </option>
       <option> Trumpet </option>
-      <option> Pro Tools/ Logic </option>
+      <option>  Pro Tools/ Logic </option>
       <option> Ableton Live </option>
       <option> Midi </option>
     </select>

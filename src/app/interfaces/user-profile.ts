@@ -4,6 +4,6 @@ export interface UserProfile {
     userArtForm: string,
     userGenre: string,
     userCollabStyle: string,
+    userArtTools: string[],
     userBio: string,
-    userArtTools: string[];
 }

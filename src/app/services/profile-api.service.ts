@@ -20,9 +20,8 @@ export class ProfileApiService {
 
   // PUT /api/profile/:userId ----- //
   editMyProfile(profileFields: UserProfile){
-    return this.httpService.put(this.baseUrl + '/api/profile/',  profileFields, {withCredentials:true});
+    return this.httpService.put(this.baseUrl + '/api/profile/' ,  profileFields, {withCredentials:true});
   }
-
 
   // DELETE /api/profile/ID
   deleteMyProfile(userId:string){

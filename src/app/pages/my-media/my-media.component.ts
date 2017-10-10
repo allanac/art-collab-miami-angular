@@ -1,5 +1,7 @@
 import {Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute} from '@angular/router';
 
+import { AuthorizeApiService } from '../../services/authorize-api.service';
 import { MediaApiService } from '../../services/media-api.service';
 import { environment } from '../../../environments/environment';
 
@@ -16,11 +18,15 @@ export class MyMediaComponent implements OnInit {
   errorMessage: string;
   isFormOn = false;
 
-  myMedia: any[] = [];
+  userInfo:any;
+  myMedia: any = [];
 
 
 
-  constructor(private mediaService: MediaApiService) { }
+  constructor(private mediaService: MediaApiService,
+              private activatedService: ActivatedRoute,
+              private authService: AuthorizeApiService,
+              private routerService: Router) { }
 
   ngOnInit() {
         this.mediaService.getMyMedia()
@@ -36,18 +42,28 @@ export class MyMediaComponent implements OnInit {
               }
             }
 
-          );
+          );//subscribe()
+
+          this.authService.getLoginStatus()
+            .subscribe((loggedInInfo: any) => {
+                if(loggedInInfo.isLoggedIn){
+                  this.userInfo = loggedInInfo.userInfo;
+                }
+            }); // subscribe();
 
   } // ngOnInit{}
 
 
 
-  // deleteClick(){
-  //     this.mediaService.deleteMedia(this.myMedia._id)
-  //       .subscribe(
-  //         () => this.routerService.navigate['/profile']
-  //       );
-  // } //deleteClick{}
+  deleteClick(){
+    this.activatedService.params.subscribe((myParams) => {
+      this.mediaService.deleteMedia(myParams.mediaId)
+        .subscribe(
+          (theMediaFromApi) => {this.myMedia = theMediaFromApi;}
+        );
+        this.routerService.navigate(['profile']);
+      });
+  } //deleteClick{}
 
 
   showForm(){

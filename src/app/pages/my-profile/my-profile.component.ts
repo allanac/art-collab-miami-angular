@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileApiService } from '../../services/profile-api.service';
+import { MediaApiService } from '../../services/media-api.service';
 import {environment} from '../../../environments/environment';
 
 
@@ -9,7 +10,7 @@ import {environment} from '../../../environments/environment';
   styleUrls: ['./my-profile.component.css']
 })
 export class MyProfileComponent implements OnInit {
-  
+
   imageDomain = environment.apiUrl;
   myProfile: any = { };
   errorMessage: string;

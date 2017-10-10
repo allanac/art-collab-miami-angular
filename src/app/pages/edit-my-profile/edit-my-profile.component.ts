@@ -25,7 +25,7 @@ export class EditMyProfileComponent implements OnInit {
     itemAlias: 'userImage'
   });
 
-  myProfile: any = {
+  myProfile: UserProfile = {
     userPic:'',
     userFullName: '',
     userArtForm:'',

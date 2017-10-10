@@ -1,0 +1,59 @@
+<h3> Add Media </h3>
+
+<p class="error" *ngIf="errorMessage"> {{errorMessage}}</p>
+
+<form (ngSubmit)="postMedia()" class="form-control">
+
+  <label for="media-title-input">Title of Work:</label>
+  <input id="media-title-input" type="text"
+         name="mediaTitle" [(ngModel)]="newMedia.mediaTitle">
+  <br>
+
+  <label for="status-media-input">Is this completed?</label>
+  <select id="status-media-input" class="selectpicker"
+         name="mediaStatus"  [(ngModel)]="newMedia.mediaStatus">
+  <option> Complete </option>
+  <option> Incomplete</option>
+  </select>
+  <br>
+
+  <label for="media-genre-input"> Please Select 3 max genres:</label>
+  <select multiple id="media-genre-input" class="selectpicker"
+          max-data-options="3" name="mediaCategory"  [(ngModel)]="newMedia.mediaCategory">
+    <option>Alternative Music</option>
+    <option>Blues</option>
+    <option>Classical Music</option>
+    <option>Country Music </option>
+    <option>Dance Music</option>
+    <option>Easy Listening</option>
+    <option>Electronic Music</option>
+    <option>European Music (Folk / Pop)</option>
+    <option>Hip Hop / Rap</option>
+    <option>Indie Pop</option>
+    <option>Inspirational (incl. Gospel)</option>
+    <option>Asian Pop (J-Pop, K-pop)</option>
+    <option>Jazz</option>
+    <option>Latin Music</option>
+    <option>New Age</option>
+    <option>Opera</option>
+    <option>Pop (Popular music)</option>
+    <option>R&B / Soul</option>
+    <option>Reggae</option>
+    <option>Rock</option>
+    <option>Singer / Songwriter (inc. Folk)</option>
+    <option>World Music / Beats</option>
+  </select>
+  <br>
+
+  <label for="collab-media-input">Collaborators?</label>
+  <input id="collab-media-input"type="text" name="mediaTeam" [(ngModel)]="newMedia.mediaTeam">
+  <br>
+
+  <label for="media-file-input">Upload Media</label>
+  <input id="media-file-input" type="file" name="mediaFile" ng2FileSelect [uploader]="myUploader">
+  <br>
+  <button> Upload Media </button>
+  <br>
+</form>
+<br>
+<br>

@@ -6,7 +6,6 @@
 <div id="add-media-button">
   <div *ngIf="userInfo">
   <button (click)="showForm()"> Add Media</button>
-
   <app-add-media-form *ngIf="isFormOn" (newMediaNotifier)="handleNewMedia($event)"></app-add-media-form>
   </div>
 </div>
@@ -19,14 +18,14 @@
     <p>team:   {{oneMedia.team}} </p>
     <p>status: {{oneMedia.status}} </p>
     <p>category: {{oneMedia.category}} </p>
-    <p>owner:  {{userInfo.username}} </p>
+    <p>owner:  <a [routerLink]="[]"></a>  {{userInfo.username}} </p>
   <audio controls="controls">
   Your browser does not support the <code>audio</code> element.
   <source [src]="mediaDomain + oneMedia.mediaFile" type="audio/wav">
   </audio>
   <br><br>
-  <div *ngIf="userInfo && myMedia.owner === userInfo._id ">
-    <button (click)="deleteClick()"> Delete </button>
+  <div *ngIf="userInfo && oneMedia.owner === userInfo._id ">
+    <button (click)="deleteClick(oneMedia._id)"> Delete </button>
   </div>
 
   </li>

@@ -32,6 +32,7 @@ export class MyMediaComponent implements OnInit {
         this.mediaService.getMyMedia()
           .subscribe((listOfMyMedia:any[]) => {
               this.myMedia = listOfMyMedia;
+              console.log(listOfMyMedia);
             },
             (errInfo) =>{
               if (errInfo.status === 401){
@@ -55,14 +56,26 @@ export class MyMediaComponent implements OnInit {
 
 
 
-  deleteClick(){
-    this.activatedService.params.subscribe((myParams) => {
-      this.mediaService.deleteMedia(myParams.mediaId)
+  deleteClick(mediaId){
+      this.mediaService.deleteMedia(mediaId)
         .subscribe(
-          (theMediaFromApi) => {this.myMedia = theMediaFromApi;}
-        );
-        this.routerService.navigate(['profile']);
-      });
+          () => {
+
+            this.myMedia.forEach((oneCow) => {
+                if(oneCow._id === mediaId){
+                  let index = this.myMedia.findIndex(
+                    i => i._id === mediaId
+                  )
+                  console.log(this.myMedia)
+                  this.myMedia.splice(index, 1);
+                  console.log(this.myMedia)
+                }
+            });
+
+            this.routerService.navigate(['myprofile']);
+          }
+        ); // subscribe on delete ()
+
   } //deleteClick{}
 
 

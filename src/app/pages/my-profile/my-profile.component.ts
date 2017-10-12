@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileApiService } from '../../services/profile-api.service';
 import { MediaApiService } from '../../services/media-api.service';
-import {environment} from '../../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 
 @Component({

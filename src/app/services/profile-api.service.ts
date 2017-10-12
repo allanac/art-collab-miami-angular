@@ -14,18 +14,22 @@ export class ProfileApiService {
   // GET /api/profile
   getMyProfile() {
     return this.httpService.get(
-      this.baseUrl + '/api/profile', {withCredentials:true}
+      this.baseUrl + '/api/myprofile', {withCredentials:true}
     );
   }
 
-  // PUT /api/profile/:userId ----- //
-  editMyProfile(profileFields: UserProfile){
-    return this.httpService.put(this.baseUrl + '/api/profile/' ,  profileFields, {withCredentials:true});
+  getUserProfile(userId:string){
+    return this.httpService.get(this.baseUrl + '/api/profile/' + userId)
   }
 
-  // DELETE /api/profile/ID
+  // PUT /api/myprofile/:userId ----- //
+  editMyProfile(profileFields: UserProfile){
+    return this.httpService.put(this.baseUrl + '/api/myprofile/' ,  profileFields, {withCredentials:true});
+  }
+
+  // DELETE /api/myprofile/ID
   deleteMyProfile(userId:string){
-    return this.httpService.delete(this.baseUrl + '/api/profile/' + userId, {withCredentials:true});
+    return this.httpService.delete(this.baseUrl + '/api/myprofile/' + userId, {withCredentials:true});
   }
 
 }

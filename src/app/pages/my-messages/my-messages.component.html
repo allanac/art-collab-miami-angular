@@ -1,0 +1,24 @@
+<h2> My Messages </h2>
+<div class="error" *ngIf="errorMessage">
+  <h3> {{errorMessage}}</h3>
+</div>
+
+<ul>
+  <li *ngFor="let oneConvo of myConversations">
+  <h3>{{oneConvo.author.username}}</h3>
+  <p> {{oneConvo.body}}</p>
+  </li>
+</ul>
+
+<hr>
+
+<form (ngSubmit)="postNewMessage()">
+<div class="message-typer">
+	<textarea
+		class="message form-control"
+		placeholder="Type" name="messageBody"
+		[(ngModel)]="newMessage.messageBody"
+	></textarea>
+  <button> Send Message </button>
+</div>
+</form>

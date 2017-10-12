@@ -1,0 +1,23 @@
+
+
+<h2> Latest Media </h2>
+
+<ul>
+  <input  id="search-input" type="search" placeholder="Search"
+          name="searchTerm" [(ngModel)]="mySearchTerm">
+  <li *ngFor="let oneMedia of medias | search: mySearchTerm">
+    <h3>Title:   {{ oneMedia.title}} </h3>
+        <p>team:   {{oneMedia.team}} </p>
+        <p>status: {{oneMedia.status}} </p>
+        <p>category: {{oneMedia.category}} </p>
+        <p>owner:  {{oneMedia.owner.username}} </p>
+        <a [routerLink]="['/profile', oneMedia.owner._id]"> See User Profile</a>
+      <audio controls="controls">
+      Your browser does not support the <code>audio</code> element.
+      <source [src]="mediaDomain + oneMedia.mediaFile" type="audio/wav">
+      </audio>
+  </li>
+</ul>
+
+<hr>
+<h2> Popular Media </h2>

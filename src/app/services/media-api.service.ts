@@ -29,10 +29,15 @@ export class MediaApiService {
   }
 
   // ---------- GET /API/MEDIA/POPULAR --------- (popular) //
-  getPopularMedia(){}
+  getPopularMedia(){
+      return this.httpService.get(this.baseUrl + '/api/media/popular', {withCredentials:true})
+  }
 
   // ---------- GET /API/MEDIA/SEARCH --------- (search) //
-  getSearchMedia() {}
+  getSearchMedia(searchTerm:string) {
+      console.log('Search Term------', searchTerm);
+      return this.httpService.get(this.baseUrl + '/api/media/' + searchTerm, {withCredentials:true})
+  }
 
 
   // ---------- POST /API/MEDIA/:id/like --------- (isLiked) //

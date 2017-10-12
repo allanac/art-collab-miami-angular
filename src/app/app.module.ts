@@ -7,6 +7,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { AuthorizeApiService } from './services/authorize-api.service';
 import { ProfileApiService } from './services/profile-api.service';
 import { MediaApiService } from './services/media-api.service';
+import { MessagesApiService } from './services/messages-api.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,11 @@ import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { EditMyProfileComponent } from './pages/edit-my-profile/edit-my-profile.component';
 import { MyMediaComponent } from './pages/my-media/my-media.component';
 import { AddMediaFormComponent } from './pages/add-media-form/add-media-form.component';
+import { MyMessagesComponent } from './pages/my-messages/my-messages.component';
+import { ExploreHomeComponent } from './pages/explore-home/explore-home.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { SendMessagesComponent } from './pages/send-messages/send-messages.component';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +31,12 @@ import { AddMediaFormComponent } from './pages/add-media-form/add-media-form.com
     MyProfileComponent,
     EditMyProfileComponent,
     MyMediaComponent,
-    AddMediaFormComponent
+    AddMediaFormComponent,
+    MyMessagesComponent,
+    ExploreHomeComponent,
+    UserProfileComponent,
+    SendMessagesComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +45,11 @@ import { AddMediaFormComponent } from './pages/add-media-form/add-media-form.com
     FormsModule,
     FileUploadModule
   ],
-  providers: [AuthorizeApiService, ProfileApiService, MediaApiService],
+  providers: [AuthorizeApiService,
+              ProfileApiService,
+              MediaApiService,
+              MessagesApiService,
+             ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,13 @@
+<h2> Send a Message to User </h2>
+<a [routerLink]="['/profile' , recipientId  ]"> Back To User Profile </a>
+<ul>
+  <li *ngFor="let oneMessage of messagesList">
+  <p>{{ oneMessage.body}}</p>
+  </li>
+</ul>
+<form (ngSubmit)="postNewMessage()">
+  <label for="text-message"> Type Some text </label>
+  <input   id="text-message" type="text" name="newMessage" [(ngModel)]="newMessage.messageBody">
+  <button> Send Message </button>
+
+</form>

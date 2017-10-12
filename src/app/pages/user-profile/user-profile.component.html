@@ -1,0 +1,17 @@
+<div class="error" *ngIf="errorMessage">
+  <h3> {{ errorMessage}} </h3>
+</div>
+
+<ul>
+<br>
+<p>Username: {{ userProfile.username}}</p>
+<p>Artist Name: {{ userProfile.fullName}}</p>
+<p> Genre: {{ userProfile.genre }}</p>
+<p> Collab Style: {{userProfile.collabStyle}}</p>
+<p> Bio: {{userProfile.bio}}</p>
+<p *ngFor="let oneTool of userProfile.artTools">My Tools: {{oneTool}} </p>
+  <li> <img style="height:150px; width:150px;" [src]="imageDomain + userProfile.profilePic"></li>
+</ul>
+<hr>
+<a [routerLink]="['/messages', userProfile._id]" > Message This User</a>
+<hr>

@@ -1,0 +1,52 @@
+.onsplash {
+  height: 25em;
+  /*background-color: red;*/
+  background-image: url('../../../assets/images/adrian-korte-76051.jpg');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center center;
+}
+.onsplash-content {
+  color: white;
+  text-align: center;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+.onsplash-content h1{
+  font-size: 5em;
+  font-weight: 300;
+}
+
+.container {
+  /*background-color: red;*/
+  height: 30em;
+  margin-top: 1em;
+}
+
+.col-md-8 {
+  position: relative;
+  left: 0em ;
+  width: 100%;
+}
+.col-md-8 li{
+  list-style: none;
+  /*border: 1px solid black;*/
+  margin-bottom: 10px;
+}
+#left {
+  height: 80%;
+  /*background-color: yellow;*/
+  overflow: auto;
+  text-align: justify;
+}
+#right {
+  height: 80%;
+  /*background-color: blue;*/
+}
+
+.#media-list-latest ul, li{
+  margin:0 auto;
+  list-style: none;
+}

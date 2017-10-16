@@ -23,7 +23,7 @@ export class MediaApiService {
     return this.httpService.get(this.baseUrl + '/api/media/', {withCredentials:true});
   }
 
-// GET my MEDIA /api/media/:id
+// GET my MEDIA /api/mymedia/
   getMyMedia(){
     return this.httpService.get(this.baseUrl + '/api/mymedia/', {withCredentials: true});
   }

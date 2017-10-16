@@ -1,32 +1,50 @@
+<div class="media-title-container">
 <h2> My Media </h2>
 <div class="error" *ngIf="errorMessage">
   <h3> {{errorMessage }} </h3>
 </div>
-
-<div id="add-media-button">
-  <div *ngIf="userInfo">
-  <button (click)="showForm()"> Add Media</button>
-  <app-add-media-form *ngIf="isFormOn" (newMediaNotifier)="handleNewMedia($event)"></app-add-media-form>
+<!-- Small modal -->
+ <button (click)="showForm()" class="btn btn-primary" data-toggle="modal"
+             data-target=".bs-example-modal-lg">
+             <span class="glyphicon glyphicon-plus-sign"
+                 aria-hidden="true"></span></button>
+ <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
+       aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+  <div class="modal-content">
+    <app-add-media-form *ngIf="isFormOn" (newMediaNotifier)="handleNewMedia($event)"></app-add-media-form>
   </div>
+</div>
+</div>
 </div>
 
 
 
+<div class="container-fluid" id="my-media-display">
 <ul>
-  <li *ngFor="let oneMedia of myMedia">
-  <h3>Title:   {{ oneMedia.title}} </h3>
-    <p>team:   {{oneMedia.team}} </p>
-    <p>status: {{oneMedia.status}} </p>
-    <p>category: {{oneMedia.category}} </p>
-    <p>owner:  <a [routerLink]="[]"></a>  {{userInfo.username}} </p>
-  <audio controls="controls">
-  Your browser does not support the <code>audio</code> element.
-  <source [src]="mediaDomain + oneMedia.mediaFile" type="audio/wav">
-  </audio>
-  <br><br>
-  <div *ngIf="userInfo && oneMedia.owner === userInfo._id ">
-    <button (click)="deleteClick(oneMedia._id)"> Delete </button>
+<div class="row" id="media-list">
+<li *ngFor="let oneMedia of myMedia">
+<div class="col-md-7 col-md-offset-2 col-sm-4" id="my-media-list">
+    <div class="col-md-4">
+    <h3> {{ oneMedia.title}} </h3>
+    <h4>{{oneMedia.owner.fullName}} </h4>
+    <h6> {{oneMedia.team}} </h6>
+    <span *ngIf="userInfo && oneMedia.owner === userInfo._id ">
+      <button (click)="deleteClick(oneMedia._id)" class="btn btn-default">
+        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+      </span>
   </div>
-
-  </li>
+  <div class="col-md-5 col-md-offset-1">
+<br>
+      <h6>{{oneMedia.status}} </h6>
+    <audio controls="controls">
+      Your browser does not support the <code>audio</code> element.
+      <source [src]="mediaDomain + oneMedia.mediaFile" type="audio/wav">
+      </audio>
+    <h6>{{oneMedia.category}} </h6>
+  </div>
+</div>
+</li>
+</div>
 </ul>
+</div>

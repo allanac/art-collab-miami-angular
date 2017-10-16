@@ -1,25 +1,42 @@
-<input type="search" placeholder="Search"
-  [(ngModel)]="mySearchTerm">
-
-<h2> Latest Media </h2>
-
-<div class="row">
-  <div class="col-md-8">
-<ul>
-  <li *ngFor="let oneMedia of (medias | search:mySearchTerm)">
-    <h3>Title:     {{oneMedia.title}} </h3>
-    <p>owner:  {{oneMedia.owner.username}} </p>
-    <audio controls="controls">
-      Your browser does not support the <code>audio</code> element.
-    <source [src]="mediaDomain + oneMedia.mediaFile" type="audio/wav">
-      </audio>
-        <p>team:   {{oneMedia.team}} </p>
-        <p>status: {{oneMedia.status}} </p>
-        <p>category: {{oneMedia.category}} </p>
-        <a [routerLink]="['/profile', oneMedia.owner._id]"> See User Profile</a>
-  </li>
-</ul>
+<div class="onsplash">
+  <div class="onsplash-content">
+    <h1>Collab Miami</h1>
+    <p>Where Artist Collaboration Begins ... </p>
+  </div>
 </div>
 
-<hr>
-<h2> Popular Media </h2>
+
+<div class="container">
+  <h2> Latest Media </h2>
+  <div id = "left" class="col-md-6">
+    <input type="search" placeholder="Search"
+    [(ngModel)]="mySearchTerm" class="form-control">
+    <br>
+    <div class="col-md-8" id="media-list-latest">
+      <ul>
+        <li *ngFor="let oneMedia of (medias | search:mySearchTerm)">
+
+            <h3> {{oneMedia.title}} </h3>
+            <h4><a [routerLink]="['/profile', oneMedia.owner._id]"> {{oneMedia.owner.fullName}}</a></h4>
+            <h6> {{oneMedia.team}} </h6>
+            <h6> {{oneMedia.status}} </h6>
+
+
+            <div id="waveform"><!-- <button (click)="clickPlay()">Play</button> --></div>
+
+          <audio controls="controls">
+          Your browser does not support the <code>audio</code> element.
+          <source [src]="mediaDomain + oneMedia.mediaFile" type="audio/wav">
+          </audio>
+          <h5> {{oneMedia.category}} </h5>
+
+      </li>
+    </ul>
+  </div>
+</div>
+
+  <!-- <div id = "right" class="col-md-6">
+    <hr>
+    <h2> Popular Media </h2>
+  </div> -->
+</div>

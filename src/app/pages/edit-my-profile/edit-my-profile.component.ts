@@ -14,14 +14,14 @@ import { environment } from '../../../environments/environment';
 export class EditMyProfileComponent implements OnInit {
 
   // CLASS COMPONENT VARIABLES BEGIN ------------------//
-  imageDomain = environment.apiUrl;
-
+  // imageDomain = environment.apiUrl;
+  imageDomain = '';
 
   errorMessage: string;
 
   myUploader = new FileUploader({
     method: 'PUT',
-    url: environment.apiUrl + '/api/profile',
+    url: environment.apiUrl + '/api/myprofile',
     itemAlias: 'userImage'
   });
 

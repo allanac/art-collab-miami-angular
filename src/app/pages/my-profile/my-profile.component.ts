@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ProfileApiService } from '../../services/profile-api.service';
 import { MediaApiService } from '../../services/media-api.service';
+import { AuthorizeApiService } from '../../services/authorize-api.service';
+
 import { environment } from '../../../environments/environment';
 
 
@@ -11,11 +14,15 @@ import { environment } from '../../../environments/environment';
 })
 export class MyProfileComponent implements OnInit {
 
-  imageDomain = environment.apiUrl;
+  // imageDomain = environment.apiUrl;
+  imageDomain = '';
   myProfile: any = { };
   errorMessage: string;
 
-  constructor(private profileService: ProfileApiService) { }
+  userInfo:any;
+
+  constructor(private profileService: ProfileApiService,
+              private authService: AuthorizeApiService) { }
 
   ngOnInit() {
     this.profileService.getMyProfile()
@@ -32,7 +39,17 @@ export class MyProfileComponent implements OnInit {
           }
       }); // .subscribe();
 
+      this.authService.getLoginStatus()
+        .subscribe((loggedInInfo: any) => {
+            if(loggedInInfo.isLoggedIn){
+              this.userInfo = loggedInInfo.userInfo;
+            }
+        }); // subscribe();
 
   } // ngOnInit{}
+
+  logMeOut(){
+
+  }
 
 }

@@ -1,0 +1,25 @@
+#myprofile-container {
+  max-width: 50%;
+}
+
+#myprofile-container h1, h2, h3, h4, h5, h6, p{
+  text-align: center;
+}
+
+#profile-name h3{ text-align: center}
+
+
+#myprofile-container img{
+  margin-left: 0%;
+  border-radius: 50%;
+  height:150px;
+  width: 150px;
+}
+.user-name-edit h3{
+  margin-left: 10%;
+  display: inline-block;
+  text-align: center;
+}
+#myprofile-container div{
+  /*border-style: 1px solid black;*/
+}

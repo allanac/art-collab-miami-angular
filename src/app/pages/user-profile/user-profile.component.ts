@@ -11,7 +11,8 @@ import { environment } from '../../../environments/environment';
 })
 export class UserProfileComponent implements OnInit {
 
-  imageDomain = environment.apiUrl;
+  // imageDomain = environment.apiUrl;
+  imageDomain = '';
   userProfile: any = {};
   errorMessage: string;
 

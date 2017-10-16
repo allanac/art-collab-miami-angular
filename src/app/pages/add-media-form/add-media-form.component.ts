@@ -13,7 +13,8 @@ import { environment } from '../../../environments/environment';
 
 export class AddMediaFormComponent implements OnInit {
 
-  mediaDomain = environment.apiUrl;
+  // mediaDomain = environment.apiUrl;
+  mediaDomain = '';
   errorMessage: string;
   @Output() newMediaNotifier = new EventEmitter();
 
@@ -38,11 +39,14 @@ export class AddMediaFormComponent implements OnInit {
   }
 
   postMedia(){
+    console.log(this.newMedia.mediaCategory);
       this.myUploader.onBuildItemForm = (item,form) => {
           form.append('mediaTitle', this.newMedia.mediaTitle);
           form.append('mediaTeam', this.newMedia.mediaTeam);
           form.append('mediaStatus', this.newMedia.mediaStatus);
-          form.append('mediaCategory', this.newMedia.mediaCategory);
+          this.newMedia.mediaCategory.forEach((oneCat) => {
+            form.append('mediaCategory', oneCat);
+          });
       }
 
       this.myUploader.onSuccessItem = (item,response) => {

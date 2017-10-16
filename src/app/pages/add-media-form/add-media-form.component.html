@@ -1,4 +1,6 @@
 <h3> Add Media </h3>
+<div class="container-fluid">
+<div class="col-md-4">
 
 <p class="error" *ngIf="errorMessage"> {{errorMessage}}</p>
 
@@ -10,7 +12,7 @@
   <br>
 
   <label for="status-media-input">Is this completed?</label>
-  <select id="status-media-input" class="selectpicker"
+  <select id="status-media-input" class="selectpicker form-control"
          name="mediaStatus"  [(ngModel)]="newMedia.mediaStatus">
   <option> Complete </option>
   <option> Incomplete</option>
@@ -18,7 +20,7 @@
   <br>
 
   <label for="media-genre-input"> Please Select 3 max genres:</label>
-  <select multiple id="media-genre-input" class="selectpicker"
+  <select multiple id="media-genre-input" class="selectpicker form-control"
           max-data-options="3" name="mediaCategory"  [(ngModel)]="newMedia.mediaCategory">
     <option>Alternative Music</option>
     <option>Blues</option>
@@ -46,14 +48,16 @@
   <br>
 
   <label for="collab-media-input">Collaborators?</label>
-  <input id="collab-media-input"type="text" name="mediaTeam" [(ngModel)]="newMedia.mediaTeam">
+  <input id="collab-media-input" type="text" name="mediaTeam"
+      [(ngModel)]="newMedia.mediaTeam">
   <br>
 
   <label for="media-file-input">Upload Media</label>
-  <input id="media-file-input" type="file" name="mediaFile" ng2FileSelect [uploader]="myUploader">
+  <input id="media-file-input" type="file"
+        name="mediaFile" ng2FileSelect [uploader]="myUploader">
   <br>
   <button> Upload Media </button>
   <br>
 </form>
-<br>
-<br>
+</div>
+</div>

@@ -14,7 +14,8 @@ import { environment } from '../../../environments/environment';
 
 export class MyMediaComponent implements OnInit {
 
-  mediaDomain = environment.apiUrl;
+  // mediaDomain = environment.apiUrl;
+  mediaDomain = '';
   errorMessage: string;
   isFormOn = false;
 

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { FileUploadModule } from 'ng2-file-upload';
+import {AudioContextModule } from 'angular-audio-context';
 
 import { AuthorizeApiService } from './services/authorize-api.service';
 import { ProfileApiService } from './services/profile-api.service';
@@ -22,6 +23,7 @@ import { ExploreHomeComponent } from './pages/explore-home/explore-home.componen
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { SendMessagesComponent } from './pages/send-messages/send-messages.component';
 import { SearchPipe } from './pipes/search.pipe';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -37,13 +39,15 @@ import { SearchPipe } from './pipes/search.pipe';
     UserProfileComponent,
     SendMessagesComponent,
     SearchPipe,
+    NavComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    FileUploadModule
+    FileUploadModule,
+    AudioContextModule.forRoot('balanced')
   ],
   providers: [AuthorizeApiService,
               ProfileApiService,

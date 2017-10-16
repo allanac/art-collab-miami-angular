@@ -1,0 +1,16 @@
+#my-media-display ul {
+  list-style: none;
+}
+
+#my-media-list{
+  border: 1px solid black;
+  padding:1%;
+}
+
+#media-list div{
+  margin-bottom: 30px;
+}
+
+.media-title-container {
+  text-align: center;
+}

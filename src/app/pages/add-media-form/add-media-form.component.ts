@@ -39,7 +39,7 @@ export class AddMediaFormComponent implements OnInit {
   }
 
   postMedia(){
-    console.log(this.newMedia.mediaCategory);
+    // console.log(this.newMedia.mediaCategory);
       this.myUploader.onBuildItemForm = (item,form) => {
           form.append('mediaTitle', this.newMedia.mediaTitle);
           form.append('mediaTeam', this.newMedia.mediaTeam);
@@ -73,8 +73,6 @@ export class AddMediaFormComponent implements OnInit {
 
       this.myUploader.uploadAll();
   } // postMedia {}
-
-
 
 
 }

@@ -44,7 +44,6 @@ export class EditMyProfileComponent implements OnInit {
   ngOnInit() { }
 
     editMyProfile() {
-      console.log('hi')
       if(this.myUploader.getNotUploadedItems().length > 0) {
         this.saveMyProfileWithImage();
       }
@@ -59,7 +58,9 @@ export class EditMyProfileComponent implements OnInit {
           form.append('userFullName', this.myProfile.userFullName);
           form.append('userGenre', this.myProfile.userGenre);
           form.append('userArtForm', this.myProfile.userArtForm);
-          form.append('userArtTools', this.myProfile.userArtTools);
+          this.myProfile.userArtTools.forEach((oneTool) => {
+            form.append('userArtTools', oneTool);
+          });
           form.append('userCollabStyle', this.myProfile.userCollabStyle);
           form.append('userBio', this.myProfile.userBio);
       }; //onBuildItemForm

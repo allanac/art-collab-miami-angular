@@ -4,10 +4,12 @@
 </div>
 
 <ul>
+  <div class="messages-container">
   <li *ngFor="let oneConvo of myConversations">
   <h3>{{oneConvo.author.username}}</h3>
   <p> {{oneConvo.body}}</p>
   </li>
+</div>
 </ul>
 
 <hr>

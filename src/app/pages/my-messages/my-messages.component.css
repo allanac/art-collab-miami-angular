@@ -1,0 +1,13 @@
+
+.messages-container {
+  width:100%;
+}
+.messages-wrapper {
+  width:90%
+}
+.messages-from {
+  width: 30%
+}
+.messages-preview {
+  width:60%;
+}

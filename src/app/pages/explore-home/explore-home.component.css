@@ -2,7 +2,7 @@
   height: 25em;
   /*background-color: red;*/
   background-image: url('../../../assets/images/adrian-korte-76051.jpg');
-  display: flex;
+  display: auto;
   justify-content: center;
   align-items: center;
   background-size: cover;

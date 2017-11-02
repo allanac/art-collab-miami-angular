@@ -1,13 +1,21 @@
 
 .messages-container {
-  width:100%;
+  width:80%;
+  background-color: blue;
+  position: flex;
+  justify-content: center;
+  align-self: center;
 }
 .messages-wrapper {
-  width:90%
+  width:90%;
+  background-color: yellow;
 }
+
 .messages-from {
-  width: 30%
+  background-color: green;
+  border-radius: 50%;
 }
 .messages-preview {
   width:60%;
+  background-color: orange;
 }

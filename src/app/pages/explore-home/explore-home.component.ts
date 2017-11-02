@@ -17,7 +17,8 @@ import {TimelinePlugin} from 'wavesurfer.js/dist/plugin/wavesurfer.timeline.min.
 export class ExploreHomeComponent implements OnInit {
 
   // mediaDomain = environment.apiUrl;
-    mediaDomain = '';
+
+  mediaDomain = '';
   medias: any = [];
   userInfo:any = {};
   errorMessage: string;
